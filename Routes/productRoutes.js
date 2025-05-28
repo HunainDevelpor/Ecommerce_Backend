@@ -1,10 +1,12 @@
+// routes/productRoutes.js
 const express = require('express');
 const router = express.Router();
-const { verifyToken } = require('../middlewares/auth');
-const paymentController = require('../controllers/paymentController');
+const productController = require('../controllers/productController');
 
-router.post('/', verifyToken, paymentController.initiatePayment);
-router.put('/', verifyToken, paymentController.updatePayment);
-router.get('/:orderId', verifyToken, paymentController.getPayment);
+router.get('/get', productController.getAllProducts);
+router.post('/add', productController.createProduct);
+// router.get('/get/:id', productController.getProductById);
+// router.put('/update/:id', productController.updateProduct);
+// router.delete('/delete/:id', productController.deleteProduct);
 
 module.exports = router;

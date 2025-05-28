@@ -65,3 +65,13 @@ exports.register = async (req, res) => {
     }
   };
   
+  exports.logout = async (req, res) => {
+    // Client should delete token on their side (from localStorage/cookies)
+    try {
+      
+      res.status(200).json({ message: 'Logout successful. Please delete token on client side.' });
+    } catch (error) {
+      res.status(500).json({ message: 'Server error during logout', error: error.message });
+    }
+  };
+  

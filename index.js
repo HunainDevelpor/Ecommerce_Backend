@@ -5,11 +5,12 @@ const cors = require('cors');
 const db  = require('./utils/db');
 const authRoutes = require('./Routes/authRoutes');
 
-// const userRoutes = require('./Routes/userRoutes');
+const userRoutes = require('./Routes/userRoutes');
 const productRoutes = require('./Routes/productRoutes');
 const cartRoutes = require('./Routes/cartRoutes');
-// const orderRoutes = require('./Routes/orderRoutes');
-// const paymentRoutes = require('./Routes/paymentRoutes');
+const wishlistRoutes = require('./Routes/wishlistRoutes');
+const orderRoutes = require('./Routes/orderRoutes');
+const paymentRoutes = require('./Routes/paymentRoutes');
 // const { errorHandler } = require('./middleware/errorHandler');
 
 
@@ -31,11 +32,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/auth', authRoutes);
-// app.use('/api/user', userRoutes);
+app.use('/api/user', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
-// app.use('/api/orders', orderRoutes);
-// app.use('/api/payments', paymentRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/wishlist', wishlistRoutes);
 
 // Error handler
 // app.use(errorHandler);
